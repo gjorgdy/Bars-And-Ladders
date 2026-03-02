@@ -11,12 +11,13 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LadderBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import nl.gjorgdy.bars_and_ladders.BarsAndLadders;
 import nl.gjorgdy.bars_and_ladders.utils.ItemUtils;
 
 public class Ladders {
 
     public static boolean lower(Player player, ItemStack stack, Level world, BlockPos pos) {
-        for (int i = 0 ; i < 16 ; i++) {
+        for (int i = 0; i < BarsAndLadders.ladderReach; i++) {
             BlockPos _pos = pos.below(i);
             BlockState _block = world.getBlockState(_pos);
             if (_block.is(Blocks.AIR) || _block.is(Blocks.WATER)) {

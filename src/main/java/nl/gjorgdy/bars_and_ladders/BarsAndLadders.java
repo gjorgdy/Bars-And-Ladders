@@ -19,6 +19,8 @@ public class BarsAndLadders implements ModInitializer {
 	public static double targetSpeed = -0.75;
 	public static double dragModifier = 0.85;
 
+	public static int ladderReach = 16;
+
 	@Override
 	public void onInitialize() {
 		UseBlockCallback.EVENT.register(new UseBlockCallbackListener());

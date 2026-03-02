@@ -6,6 +6,7 @@ import me.fzzyhmstrs.fzzy_config.api.ConfigApi;
 import me.fzzyhmstrs.fzzy_config.api.ConfigApiJava;
 import me.fzzyhmstrs.fzzy_config.config.Config;
 import me.fzzyhmstrs.fzzy_config.validation.number.ValidatedDouble;
+import me.fzzyhmstrs.fzzy_config.validation.number.ValidatedInt;
 import me.fzzyhmstrs.fzzy_config.validation.number.ValidatedNumber;
 import net.minecraft.resources.Identifier;
 
@@ -21,6 +22,7 @@ public class FzzyConfig extends Config {
         var config = ConfigApiJava.registerAndLoadConfig(FzzyConfig::new);
         BarsAndLadders.targetSpeed = config.targetSpeed.get();
         BarsAndLadders.dragModifier = config.dragModifier.get();
+        BarsAndLadders.ladderReach = config.ladderReach.get();
     }
 
     private FzzyConfig() {
@@ -32,5 +34,8 @@ public class FzzyConfig extends Config {
 
     @Comment("The value by which the player's speed will be multiplied per tick while sliding down a bar.")
     private ValidatedDouble dragModifier = new ValidatedDouble(BarsAndLadders.dragModifier, 1, 0, ValidatedDouble.WidgetType.TEXTBOX_WITH_BUTTONS);
+
+    @Comment("How long a ladder can be to still be extendable.")
+    private ValidatedInt ladderReach = new ValidatedInt(BarsAndLadders.ladderReach, 384, 0, ValidatedDouble.WidgetType.TEXTBOX_WITH_BUTTONS);
 
 }

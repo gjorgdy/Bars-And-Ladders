@@ -1,8 +1,6 @@
 package nl.gjorgdy.bars_and_ladders.listeners;
 
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
-import net.minecraft.client.player.LocalPlayer;
-import net.minecraft.network.protocol.game.ServerboundUseItemOnPacket;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
