@@ -4,6 +4,7 @@
   "package": "nl.gjorgdy.bars_and_ladders.mixins",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "LadderBlockMixin",
     "PlayerEntityMixin"
   ],
   "injectors": {
