@@ -1,37 +1,27 @@
-![A Copper Golem on a stage playing music with the text "Golem DJ" in front of it](https://cdn.modrinth.com/data/cached_images/9ca2507a54e774db12663c552446dae8b4185a9a.webp)
-
 <center>
-  Is your world not quite musical enough? Let the golems play you your favourite songs.
+    <h1>TO-DO : Banner image</h1>
+    Ever wanted to experience the thrill of being a fireman in Minecraft? We got the bars and ladders to start!
 </center>
 
 <br>
 
 ## About
 
-Golem DJ is a simple mod that allows Copper Golems to put music discs into jukeboxes.
+Bars and Ladders adds two primary features to the game: sliding down poles and lowering ladders.
 
-### Normal Golems
-By default, when a golem picks up a music disc from a chest, it will try to put the disc in the closest jukebox.
-- If the jukebox already has a disc in it, the golem will wait at the jukebox until the disc is removed.
-- If the golem can't find a jukebox, it will sort the disc into a chest.
+### Poles
 
-### DJ Golems
-If a Copper Golem has the word "DJ" in its name, it will _only_ pick-up music discs, ignoring all other items.
-- It will try to put a disc into a jukebox, no matter the config settings.
-- It will wait at a jukebox, no matter the config settings.
-- It will not sort music discs, no matter the config settings.
+A pole is created by building a loose standing pillar of (Iron, Copper) Bars or End Rods.
+<br> When you jump into a pole, you will be slightly slowed down and not take fall damage.
+> Fall damage reduction is only applied if you've been slowed down enough, this means you can not 'clutch' your fall.
 
-<br>
+Looking away and sneaking while on a pole will cause you to 'push' yourself off of it, allowing to land on a platform next to the pole.
 
-## Compatibility
+### Ladders
 
-The mod is compatible with any mod that adds music discs which uses vanilla's ``JUKEBOX_PLAYABLE`` component.
-> (This is the standard for music discs, so it should be compatible with most mods.)
+When right-clicking a placed ladder with a ladder in your hand, it will be extended downwards.
 
-#### Recommended mods to combine with Golem DJ:
-- [Sculk Radio](https://modrinth.com/mod/sculk-radio) _by [Gjorgdy (me)](https://modrinth.com/user/Gjorgdy)_
-- [AudioPlayer](https://modrinth.com/mod/audioplayer) _by [henkelmax](https://modrinth.com/user/henkelmax)_
-- [Sound Physics Remastered](https://modrinth.com/mod/sound-physics-remastered) _by [henkelmax](https://modrinth.com/user/henkelmax)_
+Ladders can also be supported by other ladders above them, meaning you can build a ladder downwards from a platform without needing a wall for support.
 
 <br>
 
@@ -43,10 +33,5 @@ To change settings, you can install [Fzzy Config](https://modrinth.com/mod/fzzy-
 To load changes to the config file, you can use the vanilla ``/reload`` command.
 
 ```toml
-# Whether all golems should try to put a disc into a jukebox.
-useJukebox = true
-# Whether all golems should wait at a jukebox if it can't put the disc in.
-waitAtJukebox = true
-# Whether a golem should sort a disc into a chest if it can't find a jukebox to put it in.
-sortDiscIfNoJukebox = true
+TO-DO: Config options
 ```
