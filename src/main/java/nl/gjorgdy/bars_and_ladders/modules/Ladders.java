@@ -20,7 +20,7 @@ public class Ladders {
         for (int i = 0; i < BarsAndLadders.ladderReach; i++) {
             BlockPos _pos = pos.below(i);
             BlockState _block = world.getBlockState(_pos);
-            if (_block.is(Blocks.AIR) || _block.is(Blocks.WATER)) {
+            if (_block.canBeReplaced()) {
                 if (ItemUtils.place(stack, player, _pos, SoundEvents.LADDER_PLACE)) {
                     return true;
                 } else {
