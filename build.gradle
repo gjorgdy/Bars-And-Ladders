@@ -3,7 +3,8 @@ plugins {
     id 'fabric-loom' version "${loom_version}"
 }
 
-version = "${project.mod_version}+${project.minecraft_version}"
+var min_minecraft_version = project.minecraft_versions.split(',').first()
+version = "${project.mod_version}+${min_minecraft_version}"
 group = project.maven_group
 
 base {
@@ -22,6 +23,7 @@ dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings loom.officialMojangMappings()
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
     modImplementation "me.fzzyhmstrs:fzzy_config:${project.fzzy_config_version}"
 }
 
