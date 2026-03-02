@@ -31,7 +31,7 @@ public class Ladders {
         return false;
     }
 
-    public static boolean canBeSupported(BlockState blockState, LevelReader world, BlockPos pos) {
+    public static boolean canSurvive(BlockState blockState, LevelReader world, BlockPos pos) {
         BlockState upperBlock = world.getBlockState(pos.above());
         if (!blockState.is(Blocks.LADDER) || !upperBlock.is(Blocks.LADDER)) return false;
         return blockState.getValue(LadderBlock.FACING) == upperBlock.getValue(LadderBlock.FACING);
@@ -39,7 +39,7 @@ public class Ladders {
 
     public static boolean isSupported(LevelReader world, BlockPos pos) {
         BlockState block = world.getBlockState(pos);
-        return canBeSupported(block, world, pos);
+        return canSurvive(block, world, pos);
     }
 
     public static void updateLadder(LevelReader world, BlockPos pos) {

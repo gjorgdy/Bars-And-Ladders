@@ -17,7 +17,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class LadderBlockMixin {
 
     @Inject(method = "updateShape", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/Block;defaultBlockState()Lnet/minecraft/world/level/block/state/BlockState;"), cancellable = true)
-    public void update(BlockState state, LevelReader world, ScheduledTickAccess tickView, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, RandomSource random, CallbackInfoReturnable<BlockState> cir) {
+    public void updateShape(BlockState state, LevelReader world, ScheduledTickAccess tickView, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, RandomSource random, CallbackInfoReturnable<BlockState> cir) {
         if (Ladders.isSupported(world, pos)) {
             cir.setReturnValue(state);
         } else {
@@ -26,9 +26,9 @@ public class LadderBlockMixin {
     }
 
     @Inject(method = "canSurvive", at = @At("RETURN"), cancellable = true)
-    public void canPlaceAt(BlockState state, LevelReader world, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
+    public void canSurvive(BlockState state, LevelReader world, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
         if (!cir.getReturnValue()) {
-            cir.setReturnValue(Ladders.canBeSupported(state, world, pos));
+            cir.setReturnValue(Ladders.canSurvive(state, world, pos));
         }
     }
 
