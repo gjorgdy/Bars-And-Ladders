@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "bars_and_ladders",
+  "version": "${version}",
+  "name": "Bars and Ladders",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "unlicense",
+  "icon": "assets/bars_and_ladders/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "nl.gjorgdy.bars_and_ladders.client.BarsAndLaddersClient"
+    ],
+    "main": [
+      "nl.gjorgdy.bars_and_ladders.BarsAndLadders"
+    ]
+  },
+  "mixins": [
+    "bars_and_ladders.mixins.json",
+    {
+      "config": "bars_and_ladders.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
