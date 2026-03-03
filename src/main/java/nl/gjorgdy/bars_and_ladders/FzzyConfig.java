@@ -23,6 +23,7 @@ public class FzzyConfig extends Config {
         BarsAndLadders.targetSpeed = config.targetSpeed.get();
         BarsAndLadders.dragModifier = config.dragModifier.get();
         BarsAndLadders.ladderReach = config.ladderReach.get();
+        BarsAndLadders.chainsFallDamage = config.chainsFallDamage;
     }
 
     private FzzyConfig() {
@@ -38,4 +39,6 @@ public class FzzyConfig extends Config {
     @Comment("How long a ladder can be to still be extendable.")
     private ValidatedInt ladderReach = new ValidatedInt(BarsAndLadders.ladderReach, 384, 0, ValidatedDouble.WidgetType.TEXTBOX_WITH_BUTTONS);
 
+    @Comment("Whether players will take fall damage from grabbing onto chains from too high.")
+    public boolean chainsFallDamage = true;
 }

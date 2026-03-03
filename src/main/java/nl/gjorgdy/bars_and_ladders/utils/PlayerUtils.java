@@ -2,6 +2,7 @@ package nl.gjorgdy.bars_and_ladders.utils;
 
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.network.protocol.game.ClientboundSoundEntityPacket;
 import net.minecraft.network.protocol.game.ServerboundUseItemOnPacket;
 import net.minecraft.server.level.ServerPlayer;
@@ -11,6 +12,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.Vec3;
 
 public class PlayerUtils {
 
@@ -28,6 +30,11 @@ public class PlayerUtils {
                 player.getRandom().nextLong() // Seed
         );
         player.connection.send(packet);
+    }
+
+    public static void setVelocity(ServerPlayer player, Vec3 velocity) {
+        player.setDeltaMovement(velocity);
+        player.connection.send(new ClientboundSetEntityMotionPacket(player.getId(), velocity), null);
     }
 
     /**

@@ -5,6 +5,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import nl.gjorgdy.bars_and_ladders.modules.Bars;
+import nl.gjorgdy.bars_and_ladders.modules.Chains;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -24,6 +25,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
     @Inject(at = @At("TAIL"), method = "tick")
     private void tick(CallbackInfo ci) {
         Bars.tick(player);
+        Chains.tick(player);
     }
 
 }

@@ -21,6 +21,8 @@ public class BarsAndLadders implements ModInitializer {
 
 	public static int ladderReach = 16;
 
+	public static boolean chainsFallDamage = true;
+
 	@Override
 	public void onInitialize() {
 		UseBlockCallback.EVENT.register(new UseBlockCallbackListener());
