@@ -21,9 +21,9 @@ public class Bars {
     }
 
     public static void tick(Player player) {
-        if (!player.isSpectator() && !player.onGround() && player.getDeltaMovement().y() < 0 && !player.isShiftKeyDown() && isPole(player)) {
+        if (!player.isSpectator() && !player.onGround() && player.getDeltaMovement().y() < 0 && isPole(player)) {
             Vec3 v = player.getDeltaMovement();
-            var multiplier = getVelocityMultiplier() * (player.isCrouching() ? 0.5 : 1);
+            var multiplier = getVelocityMultiplier() * (player.isCrouching() ? 0.75 : 1);
             double newVerticalVelocity = v.y >= getTargetVelocity() ? v.y : v.y * multiplier;
             var newVelocity = new Vec3(v.x, newVerticalVelocity, v.z);
             if (player instanceof ServerPlayer serverPlayer)
