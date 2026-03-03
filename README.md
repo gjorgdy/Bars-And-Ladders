@@ -15,7 +15,7 @@ By building a loose standing pillar of (Iron, Copper) Bars or End Rods, you crea
 <br> When you jump into a pole, you will be slightly slowed down and not take fall damage.
 > Fall damage reduction is only applied if you've been slowed down enough, this means you can not 'clutch' your fall.
 
-Looking away and sneaking while on a pole will cause you to 'push' yourself off of it, allowing to land on a platform next to the pole.
+Looking away and jumping while on a pole will cause you to 'push' yourself off of it, allowing to land on a platform next to the pole.
 
 ### Ladders
 

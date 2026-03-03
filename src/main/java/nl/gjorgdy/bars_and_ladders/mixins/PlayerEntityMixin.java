@@ -26,15 +26,4 @@ public abstract class PlayerEntityMixin extends LivingEntity {
         Bars.tick(player);
     }
 
-    @Override
-    public void setShiftKeyDown(boolean sneaking) {
-        boolean set = true;
-        if (sneaking) {
-            set = Bars.jump(player);
-        }
-        if (set) {
-            super.setShiftKeyDown(sneaking);
-        }
-    }
-
 }
