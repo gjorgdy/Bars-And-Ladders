@@ -9,9 +9,9 @@
 
 Bars and Ladders adds two primary features to the game: sliding down poles and lowering ladders.
 
-### Poles
+### Bars
 
-A pole is created by building a loose standing pillar of (Iron, Copper) Bars or End Rods.
+By building a loose standing pillar of (Iron, Copper) Bars or End Rods, you create a 'pole'.
 <br> When you jump into a pole, you will be slightly slowed down and not take fall damage.
 > Fall damage reduction is only applied if you've been slowed down enough, this means you can not 'clutch' your fall.
 
