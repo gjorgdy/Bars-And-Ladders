@@ -10,19 +10,12 @@
   "icon": "assets/bars_and_ladders/icon.png",
   "environment": "*",
   "entrypoints": {
-    "client": [
-      "nl.gjorgdy.bars_and_ladders.client.BarsAndLaddersClient"
-    ],
     "main": [
       "nl.gjorgdy.bars_and_ladders.BarsAndLadders"
     ]
   },
   "mixins": [
-    "bars_and_ladders.mixins.json",
-    {
-      "config": "bars_and_ladders.client.mixins.json",
-      "environment": "client"
-    }
+    "bars_and_ladders.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=${loader_version}",
