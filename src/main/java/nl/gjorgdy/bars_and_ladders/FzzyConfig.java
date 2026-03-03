@@ -7,7 +7,6 @@ import me.fzzyhmstrs.fzzy_config.api.ConfigApiJava;
 import me.fzzyhmstrs.fzzy_config.config.Config;
 import me.fzzyhmstrs.fzzy_config.validation.number.ValidatedDouble;
 import me.fzzyhmstrs.fzzy_config.validation.number.ValidatedInt;
-import me.fzzyhmstrs.fzzy_config.validation.number.ValidatedNumber;
 import net.minecraft.resources.Identifier;
 
 @IgnoreVisibility
@@ -21,7 +20,8 @@ public class FzzyConfig extends Config {
     public static void load() {
         var config = ConfigApiJava.registerAndLoadConfig(FzzyConfig::new);
         BarsAndLadders.targetSpeed = config.targetSpeed.get();
-        BarsAndLadders.dragModifier = config.dragModifier.get();
+        BarsAndLadders.dragMultiplier = config.dragMultiplier.get();
+        BarsAndLadders.allowPoleClutch = config.allowPoleClutch;
         BarsAndLadders.ladderReach = config.ladderReach.get();
         BarsAndLadders.chainsFallDamage = config.chainsFallDamage;
     }
@@ -30,11 +30,14 @@ public class FzzyConfig extends Config {
         super(Identifier.fromNamespaceAndPath(BarsAndLadders.MOD_ID, "config"));
     }
 
-    @Comment("The speed a player will be slowed to when sliding down a bar.")
+    @Comment("The speed a player will be slowed down to when sliding down a pole.")
     private ValidatedDouble targetSpeed = new ValidatedDouble(BarsAndLadders.targetSpeed, 0, -10, ValidatedDouble.WidgetType.TEXTBOX_WITH_BUTTONS);
 
-    @Comment("The value by which the player's speed will be multiplied per tick while sliding down a bar.")
-    private ValidatedDouble dragModifier = new ValidatedDouble(BarsAndLadders.dragModifier, 1, 0, ValidatedDouble.WidgetType.TEXTBOX_WITH_BUTTONS);
+    @Comment("The value by which the player's speed will be multiplied by while sliding down a pole.")
+    private ValidatedDouble dragMultiplier = new ValidatedDouble(BarsAndLadders.dragMultiplier, 1, 0, ValidatedDouble.WidgetType.TEXTBOX_WITH_BUTTONS);
+
+    @Comment("If the fall distance should be reset no matter how fast someone is sliding down a pole.")
+    public boolean allowPoleClutch = false;
 
     @Comment("How long a ladder can be to still be extendable.")
     private ValidatedInt ladderReach = new ValidatedInt(BarsAndLadders.ladderReach, 384, 0, ValidatedDouble.WidgetType.TEXTBOX_WITH_BUTTONS);

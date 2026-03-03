@@ -17,9 +17,10 @@ public class BarsAndLadders implements ModInitializer {
 	public static final Logger LOGGER = LogManager.getLogger(MOD_NAME);
 
 	public static double targetSpeed = -0.75;
-	public static double dragModifier = 0.85;
+	public static double dragMultiplier = 0.85;
 
 	public static int ladderReach = 16;
+	public static boolean allowPoleClutch = false;
 
 	public static boolean chainsFallDamage = true;
 

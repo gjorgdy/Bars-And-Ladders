@@ -17,7 +17,7 @@ public class Bars {
     }
 
     public static double getVelocityMultiplier() {
-        return BarsAndLadders.dragModifier;
+        return BarsAndLadders.dragMultiplier;
     }
 
     public static void tick(Player player) {
@@ -28,7 +28,7 @@ public class Bars {
             var newVelocity = new Vec3(v.x, newVerticalVelocity, v.z);
             if (player instanceof ServerPlayer serverPlayer)
                 PlayerUtils.setVelocity(serverPlayer, newVelocity);
-            if (newVerticalVelocity >= getTargetVelocity()) {
+            if (newVerticalVelocity >= getTargetVelocity() || BarsAndLadders.allowPoleClutch) {
                 player.fallDistance = 0;
             }
         }
