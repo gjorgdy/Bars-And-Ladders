@@ -1,5 +1,5 @@
+![A player climbing down a ladder hanging into a ravine](https://cdn.modrinth.com/data/cached_images/27c9180921af9e84818b6deb0f3862adb44e58e1.webp)
 <center>
-    <h1>TO-DO : Banner image</h1>
     Ever wanted to experience the thrill of being a fireman in Minecraft? We got the bars and ladders to start!
 </center>
 
@@ -40,10 +40,14 @@ To change settings, you can install [Fzzy Config](https://modrinth.com/mod/fzzy-
 To load changes to the config file, you can use the vanilla ``/reload`` command.
 
 ```toml
-# The speed a player will be slowed to when sliding down a bar.
+# The speed a player will be slowed down to when sliding down a pole.
 targetSpeed = -0.75
-# The value by which the player's speed will be multiplied per tick while sliding down a bar.
-dragModifier = 0.85
+# The value by which the player's speed will be multiplied by while sliding down a pole.
+dragMultiplier = 0.85
+# If the fall distance should be reset no matter how fast someone is sliding down a pole.
+allowPoleClutch = false
 # How long a ladder can be to still be extendable.
 ladderReach = 16
+# Whether players will take fall damage from grabbing onto chains from too high.
+chainsFallDamage = true
 ```
