@@ -1,30 +1,31 @@
 plugins {
     id "com.modrinth.minotaur" version "2.+"
-    id 'fabric-loom' version "${loom_version}"
+    id 'net.fabricmc.fabric-loom' version "${loom_version}"
 }
 
-var min_minecraft_version = project.minecraft_versions.split(',').first()
-version = "${project.mod_version}+${min_minecraft_version}"
+version = "${project.mod_version}+${project.minecraft_version}"
 group = project.maven_group
 
 base {
     archivesName = project.mod_name
 }
 
-
 repositories {
     maven {
         name = "FzzyMaven"
         url = "https://maven.fzzyhmstrs.me/"
     }
+    maven {
+        name = "Terraformers"
+        url = "https://maven.terraformersmc.com/"
+    }
 }
 
 dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
-    mappings loom.officialMojangMappings()
-    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
-    modImplementation "me.fzzyhmstrs:fzzy_config:${project.fzzy_config_version}"
+    implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+    implementation "me.fzzyhmstrs:fzzy_config:${project.fzzy_config_version}"
 }
 
 processResources {
@@ -40,7 +41,7 @@ processResources {
     }
 }
 
-def targetJavaVersion = 21
+def targetJavaVersion = 25
 tasks.withType(JavaCompile).configureEach {
     it.options.encoding = "UTF-8"
     if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
@@ -80,10 +81,11 @@ modrinth {
     changelog = rootProject.file("changelog.md").text
     syncBodyFrom = rootProject.file("README.md").text
     versionType = project.mod_release_type
-    uploadFile = remapJar
+    uploadFile = jar
     gameVersions = project.minecraft_versions.split(',') as List<String>
     loaders = ["fabric"]
     dependencies {
+        required.project "fabric-api", ">=${project.fabric_api_version}"
         optional.version "fzzy-config", project.fzzy_config_version
     }
 }
