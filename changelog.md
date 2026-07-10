@@ -1,4 +1,4 @@
-﻿We're So Back!
+﻿Ready to Lower down into the Sulphur Caves
 ---
 
-- Updated to 26.1.2
+- Updated to 26.2
