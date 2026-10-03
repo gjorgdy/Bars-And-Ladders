@@ -7,6 +7,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.component.SwingAnimation;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -32,7 +33,7 @@ public class UseBlockCallbackListener implements UseBlockCallback {
         if (itemStack.is(Items.LADDER) && blockState.is(Blocks.LADDER)) {
             if (world.isClientSide()) return PlayerUtils.clientSwingHand(player, hand, hitResult);
             if (Ladders.lower(player, itemStack, world, hitResult.getBlockPos())) {
-                player.swing(hand, true);
+                player.swing(hand, SwingAnimation.DEFAULT, true);
             }
             return InteractionResult.SUCCESS;
         }
